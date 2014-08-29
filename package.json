@@ -1,0 +1,27 @@
+{
+  "name": "HomeHub",
+  "version": "0.0.1",
+  "description": "HomeHub Project",
+  "main": "server.js",
+  "scripts": {
+    "test": "test"
+  },
+  "engines": {
+    "node": "0.10.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/denisjacquemin/homehub.git"
+  },
+  "author": "denis.jacquemin@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/denisjacquemin/homehub/issues"
+  },
+  "homepage": "https://github.com/denisjacquemin/homehub",
+  "dependencies": {
+    "express": "~4.0.0",
+    "body-parser": "~1.0.1",
+    "elasticsearch": "~2.4.0"
+  }
+}
