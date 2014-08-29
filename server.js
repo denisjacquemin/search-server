@@ -19,10 +19,11 @@ var port = process.env.PORT || 8080; 		// set our port
 
 var elasticsearch = require('elasticsearch');
 
-var esHost = process.env.ELASTICSEARCH_HOST || 'localhost:9200';
+var esHost = process.env.BONSAI_URL || 'localhost:9200';
 var esLogLEvel = process.env.ELASTICSEARCH_LOG_LEVEL || 'trace';
 var esApiVersion = process.env.ELASTICSEARCH_API_VERSION || '1.2';
 var esKeepAlive = process.env.ELASTICSEARCH_KEEP_ALIVE || true;
+
 
 var esClient = new elasticsearch.Client({
     host: esHost,
