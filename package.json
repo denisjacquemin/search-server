@@ -23,6 +23,7 @@
     "express": "~4.0.0",
     "body-parser": "~1.0.1",
     "elasticsearch": "~2.4.0",
-    "elastic.js": "~1.2.0"
+    "elastic.js": "~1.2.0",
+    "cors": "~2.4.0"
   }
 }
