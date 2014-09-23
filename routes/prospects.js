@@ -1,4 +1,4 @@
-module.exports = function(router) {
+module.exports = function(router, esClient, ejs) {
 
   router.get('/prospects', function(req, res) {
     return res.json({ message: 'Retrieves a list of prospects' });

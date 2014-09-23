@@ -1,0 +1,51 @@
+
+== INDEX CREATION
+
+Air:app denisjacquemin$ heroku config | grep BONSAI
+BONSAI_URL: https://th02mi1u:9o9a8huzciaq6tc5@fir-3586464.us-east-1.bonsai.io
+Air:app denisjacquemin$ curl -X POST https://th02mi1u:9o9a8huzciaq6tc5@fir-3586464.us-east-1.bonsai.io/hub
+{"acknowledged":true}c5@fir-3586464.us-east-1.bonsai.io/hub
+
+== INDEX CREATION + MAPPING CONF
+
+DATA:
+
+ "property": {
+    "title": "Ceci est un titre",
+    "description": "Ceci est une longue description",
+    "price": "180 000",
+    "bedroomcount": "6",
+    "surface": "80",
+    "address": "6 TERVUURSEVEST, 3000 Louvain",
+    "location": {
+       "lat": "50.177489",
+       "lon": "5.332854"
+    },
+    "agency": {
+       "title": "ARDENNE IMMO",
+       "logo": "agency_logo.png",
+       "contact": "T. 061/29.24.14 F. 061/.29.24.15 contact@email.com"
+    }
+ }
+
+
+
+curl -X POST http://localhost:9200/geotest -d '{
+  "mappings": {
+    "property": {
+      "properties": {
+        "property": {
+          "properties": {
+            "location": { "type": "geo_point" },
+            "price": { "type": "integer"},
+            "bedroomcount": { "type": "integer"},
+            "surface": { "type": "integer"}
+          }
+        }
+      }
+    }
+  }
+}'
+
+== DELETE INDEX
+curl -XDELETE 'http://localhost:9200/geotest/'
