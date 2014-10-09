@@ -49,3 +49,27 @@ curl -X POST http://localhost:9200/geotest -d '{
 
 == DELETE INDEX
 curl -XDELETE 'http://localhost:9200/geotest/'
+
+https://th02mi1u:9o9a8huzciaq6tc5@fir-3586464.us-east-1.bonsai.io
+
+curl -X POST https://th02mi1u:9o9a8huzciaq6tc5@fir-3586464.us-east-1.bonsai.io/geotest -d '{
+  "mappings": {
+    "property": {
+      "properties": {
+        "property": {
+          "properties": {
+            "location": { "type": "geo_point" },
+            "price": { "type": "integer"},
+            "bedroomcount": { "type": "integer"},
+            "surface": { "type": "integer"}
+          }
+        }
+      }
+    }
+  }
+}'
+
+== DELETE INDEX
+curl -XDELETE 'http://localhost:9200/geotest/'
+
+curl -XDELETE 'https://th02mi1u:9o9a8huzciaq6tc5@fir-3586464.us-east-1.bonsai.io/hub'
