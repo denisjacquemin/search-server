@@ -26,7 +26,7 @@ var port = process.env.PORT || 8080; 		// set our port
 
 
 var esHost = process.env.BONSAI_URL || 'localhost:9200';
-var esLogLEvel = process.env.ELASTICSEARCH_LOG_LEVEL || 'info';
+var esLogLEvel = process.env.ELASTICSEARCH_LOG_LEVEL || 'trace';
 var esApiVersion = process.env.ELASTICSEARCH_API_VERSION || '1.2';
 var esKeepAlive = process.env.ELASTICSEARCH_KEEP_ALIVE || true;
 
@@ -48,8 +48,11 @@ var router = express.Router(); 				// get an instance of the express Router
 // import properties's routes
 require('./routes/properties')(router, esClient, ejs);
 
+require('./routes/search')(router, esClient, ejs);
+
+
 // import prospects's routes
-require('./routes/prospects')(router);
+require('./routes/prospects')(router, esClient, ejs);
 
 // test route to make sure everything is working (accessed at GET http://localhost:8080/api)
 router.get('/', function(req, res) {

@@ -33,16 +33,38 @@ DATA:
 curl -X POST http://localhost:9200/geotest -d '{
   "mappings": {
     "property": {
-      "properties": {
-        "property": {
+          "dynamic": "strict",
           "properties": {
-            "location": { "type": "geo_point" },
-            "price": { "type": "integer"},
-            "bedroomcount": { "type": "integer"},
-            "surface": { "type": "integer"}
+                "location":     { "type": "geo_point"   },
+                "price":        { "type": "integer"     },
+                "bedroomcount": { "type": "integer"     },
+                "surface":      { "type": "integer"     },
+                "title":        { "type": "string"      },
+                "description":  { "type": "string"      },
+                "address":      { "type": "string"      },
+                "agency_id":      { "type": "integer"     },
+                "created_at":   { "type": "date"        },
+                "updated_at":   { "type": "date"        },
+                "__v":          { "type": "integer"     },
+                "_id":          { "type": "string"      }
           }
-        }
-      }
+    },
+    "prospect": {
+          "dynamic": "strict",
+          "properties": {
+              "location":       { "type": "geo_point"   },
+              "budget_min":     { "type": "integer"     },
+              "budget_max":     { "type": "integer"     },
+              "bedroomcount":   { "type": "integer"     },
+              "surface":        { "type": "integer"     },
+              "ref_agence":     { "type": "string"      },
+              "description":    { "type": "string"      },
+              "agency_id":      { "type": "integer"     },
+              "created_at":     { "type": "date"        },
+              "updated_at":     { "type": "date"        },
+              "__v":            { "type": "integer"     },
+              "_id":            { "type": "string"      }
+          }
     }
   }
 }'
